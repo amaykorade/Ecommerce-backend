@@ -29,7 +29,7 @@ dotenv.config();
 // CORS policy configuration
 const allowedOrigins = [
     'http://localhost:3000',
-    // 'http://localhost:3001',
+    'http://localhost:3001',
     'https://ecommerce-backend-1z4o.onrender.com/api'
 ];
 server.use((req, res, next) => {
