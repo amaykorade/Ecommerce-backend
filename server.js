@@ -27,7 +27,11 @@ server.use('/images', express.static(path.join(__dirname, 'uploads')));
 dotenv.config();
 
 // CORS policy configuration
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'https://ecommerce-backend-1z4o.onrender.com'
+];
 server.use((req, res, next) => {
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
