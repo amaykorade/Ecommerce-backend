@@ -27,12 +27,13 @@ server.use('/images', express.static(path.join(__dirname, 'uploads')));
 dotenv.config();
 
 // CORS policy configuration
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
 server.use((req, res, next) => {
-    res.header(
-        'Access-Control-Allow-Origin',
-        'http://localhost:3001'
-    );
-    res.header('Access-Control-Allow-Headers', '*');
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
+
     res.header('Access-Control-Allow-Methods', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     // return ok for preflight request.

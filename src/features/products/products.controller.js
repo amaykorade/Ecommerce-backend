@@ -37,17 +37,19 @@ export default class ProductController {
 
     async addProduct(req, res) {
         const userID = req.userID;
-        const image = req.file ? req.file.filename : null;
+        console.log(req.file.filename);
+        const imageUrl = req.file ? req.file.filename : null;
 
-        if (!image) {
+        if (!imageUrl) {
             console.error('No file uploaded or Multer configuration issue.');
             return res.status(400).send('File upload failed.');
         }
 
         const prod = req.body;
-        prod.imageUrl = image;
+        prod.imageUrl = imageUrl;
         try {
             const products = await this.productRepository.add(userID, prod);
+            console.log("image ", products.imageUrl);
             res.status(201).send(products);
         } catch (err) {
             console.log(err);
