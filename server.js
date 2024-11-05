@@ -31,7 +31,8 @@ const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:3001',
     // 'https://ecommerce-backend-1z4o.onrender.com/api'
-    'https://ecommerce-backend-1z4o.onrender.com'
+    'https://ecommerce-backend-1z4o.onrender.com',
+    'https://ecommerce-frontend-kynh.onrender.com'
 ];
 server.use((req, res, next) => {
     const origin = req.headers.origin;
@@ -56,7 +57,9 @@ server.use('/api/cart', jwtAuth, cartRouter);
 server.use('/api/order', orderRouter);
 server.use('/api/payment', paymentRouter);
 
-server.listen(3000, () => {
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
     console.log("Server is running at 3000");
     connectUsingMongoose();
 })
