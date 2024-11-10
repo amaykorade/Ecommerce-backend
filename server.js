@@ -32,7 +32,8 @@ const allowedOrigins = [
     'http://localhost:3001',
     // 'https://ecommerce-backend-1z4o.onrender.com/api'
     'https://ecommerce-backend-1z4o.onrender.com',
-    'https://ecommerce-frontend-kynh.onrender.com'
+    'https://ecommerce-frontend-kynh.onrender.com',
+    'https://ecommerce-frontend-mpa5.onrender.com'
 ];
 server.use((req, res, next) => {
     const origin = req.headers.origin;
